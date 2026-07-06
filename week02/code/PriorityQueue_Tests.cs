@@ -8,7 +8,8 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Add three items with different priorities.
     // Expected Result: The item with the highest priority is removed first.
-    // Defect(s) Found: The highest priority item was not always selected correctly.
+    // Defect(s) Found: 
+    // The search did not always examine the last item and the dequeued item was not removed from the queue.
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
@@ -25,7 +26,8 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Add multiple items with the same highest priority.
     // Expected Result: The first item with the highest priority should be removed first (FIFO).
-    // Defect(s) Found: Items with the same priority did not always follow FIFO order. 
+    // Defect(s) Found: 
+    // Items with equal priority did not follow FIFO order because >= was used instead of >. 
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
@@ -42,7 +44,8 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Attempt to dequeue from an empty priority queue.
     // Expected Result: InvalidOperationException with the message "The queue is empty."
-    // Defect(s) Found: None.
+    // Defect(s) Found:
+    // No defects found after the fixes.
     public void TestPriorityQueue_Empty()
     {
         var priorityQueue = new PriorityQueue();
